@@ -15,11 +15,13 @@ export default class Main extends Component {
     }
 
     next = (e) => {
+        const {step} = this.state;
         e.preventDefault();
         this.setState({step:step+1})
     }
 
     prev = (e) => {
+        const {step} = this.state;
         e.preventDefault();
         this.setState({step:step-1})
     }
@@ -31,15 +33,15 @@ export default class Main extends Component {
 
     stepHandler = () => {
         const {fname, lname, companyName, companyLocation, favDish, step} = this.state;
-        if (step == 1) {
+        if (step === 1) {
             return (
                 <First fname={fname} lname={lname} next={this.next} handleChange = {this.handleChange} />
             )
-        } else if (step == 2) {
+        } else if (step === 2) {
             return (
                 <Second companyName={companyName} companyLocation={companyLocation} favDish={favDish} next={this.next} prev={this.prev} handleChange={this.handleChange} />
             )
-        } else if (step == 3) {
+        } else if (step === 3) {
             return (
                 <Show fname={fname} lname={lname} companyName={companyName} companyLocation={companyLocation} favDish={favDish} prev={this.prev} />
             )
