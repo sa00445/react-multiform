@@ -1,4 +1,7 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import First from './First';
+import Second from './Second';
+import Show from './Show';
 
 export default class Main extends Component {
 
@@ -10,6 +13,17 @@ export default class Main extends Component {
         companyLocation: "",
         favDish: ""
     }
+
+    next = (e) => {
+        e.preventDefault();
+        this.setState({step:step+1})
+    }
+
+    prev = (e) => {
+        e.preventDefault();
+        this.setState({step:step-1})
+    }
+
     render() {
         return (
             <div>
